@@ -44,7 +44,7 @@ class MusicCog(commands.Cog):
             try:
                 self.vc.play(discord.FFmpegPCMAudio(m_url, **self.FFMPEG_OPTIONS), after=lambda e: self.play_next())
             except discord.errors.ClientException:
-                await self.vc.disconnect()
+                self.vc.disconnect()
         else:
             self.is_playing = False
 
